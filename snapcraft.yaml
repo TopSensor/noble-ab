@@ -1,0 +1,19 @@
+name: noble-ab
+version: '1.0.0'
+summary: nodejs application to access bluetooth
+description: |
+
+grade: stable
+confinement: strict
+
+apps:
+  node-service:
+    command: bin/ble-app
+    daemon: simple
+    restart-condition: always
+    plugs: [network-bind]
+
+parts:
+  webserver:
+    source: .
+    plugin: nodejs
