@@ -1,19 +1,46 @@
 name: noble-ab
 version: '1.0.0'
+base: core18
 summary: nodejs application to access bluetooth
 description: |
 
-grade: stable
-confinement: strict
+grade: devel
+confinement: devmode
 
-apps:
-  node-service:
-    command: bin/ble-app
-    daemon: simple
-    restart-condition: always
-    plugs: [network-bind]
+
 
 parts:
-  webserver:
-    source: .
+  nsw:
     plugin: nodejs
+    source: https://github.com/bleonard252/NodeSnapWeb.git
+  npm:
+    plugin: python
+  
+architectures:
+  - build-on: amd64
+    run-on: amd64
+  - build-on: armhf
+    run-on: armhf
+  - build-on: i386
+    run-on: i386
+  - build-on: arm64
+    run-on: arm64
+apps:
+  nsw:
+    command: node /snap/nsw/current/lib/node_modules/nsw/index.js
+    plugs:
+      - home
+      - network
+      - network-bind
+  npm:
+    command: npm
+    plugs:
+      - home
+      - network
+      - network-bind
+  node:
+    command: node
+    plugs:
+      - home
+      - network
+      - network-bind
