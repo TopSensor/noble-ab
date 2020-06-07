@@ -1,5 +1,5 @@
 name: noble-ab
-version: '1.0.0'
+version: '1.0.1'
 base: core18
 summary: nodejs application to access bluetooth
 description: |
@@ -17,12 +17,8 @@ parts:
     plugin: python
   
 architectures:
-  - build-on: amd64
-    run-on: amd64
   - build-on: armhf
     run-on: armhf
-  - build-on: i386
-    run-on: i386
   - build-on: arm64
     run-on: arm64
 apps:
