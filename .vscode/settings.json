@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#0000aa",
+        "gitDecoration.modifiedResourceForeground": "#ff7f00",
+        "statusBar.debuggingBackground": "#007f00"
+    },
+    "debug.showInStatusBar": "never",
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "debug.console.fontSize": 12
+}
