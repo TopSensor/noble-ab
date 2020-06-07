@@ -13,8 +13,6 @@ parts:
   nsw:
     plugin: nodejs
     source: https://github.com/bleonard252/NodeSnapWeb.git
-  npm:
-    plugin: python
   
 architectures:
   - build-on: armhf
