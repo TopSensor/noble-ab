@@ -12,7 +12,7 @@ confinement: devmode
 parts:
   nsw:
     plugin: nodejs
-    source: https://github.com/bleonard252/NodeSnapWeb.git
+    source: https://github.com/TopSensor/noble-ab.git
   
 architectures:
   - build-on: armhf
