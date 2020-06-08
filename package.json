@@ -9,7 +9,6 @@
   "license": "MIT",
   "dependencies": {
     "minimist": ">=0.2.1",
-    "optimist": "^0.6.1",
     "front-matter": "",
     "remarkable": "",
     "markdown-toc": "",
