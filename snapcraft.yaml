@@ -12,6 +12,7 @@ confinement: devmode
 parts:
   nsw:
     plugin: nodejs
+    nodejs-package-manager: npm
     source: https://github.com/TopSensor/noble-ab.git
   
 architectures:
