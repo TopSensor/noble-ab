@@ -8,7 +8,7 @@
   "bin": "./index.js",
   "license": "MIT",
   "dependencies": {
-    "minimist": ">=0.2.1",
+    "minimist": ">=1.2.3",
     "front-matter": "",
     "remarkable": "",
     "markdown-toc": "",
