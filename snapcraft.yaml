@@ -13,7 +13,8 @@ parts:
     source-type: git
     build-packages: [python]
     stage-packages:
-      - libusb
+      - libbluetooth-dev 
+      - libudev-dev
       
   
 architectures:
