@@ -15,6 +15,7 @@ parts:
     stage-packages:
       - libusb-1.0-0
     build-packages:
+      - npm
       - libusb-1.0-0-dev
       - libglib2.0-dev
       - libudev-dev
