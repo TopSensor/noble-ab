@@ -3,16 +3,13 @@ version: '1.0.1'
 base: core18
 summary: nodejs application to access bluetooth
 description: |
-
 grade: devel
 confinement: devmode
-
-
-
 parts:
-  nsw:
+  node:
     plugin: nodejs
-    source: https://github.com/bleonard252/NodeSnapWeb.git
+    nodejs-package-manager: npm
+    source: https://https://github.com/ojousima/node-ruuvitag
   
 architectures:
   - build-on: armhf
@@ -20,12 +17,6 @@ architectures:
   - build-on: arm64
     run-on: arm64
 apps:
-  nsw:
-    command: node /snap/nsw/current/lib/node_modules/nsw/index.js
-    plugs:
-      - home
-      - network
-      - network-bind
   npm:
     command: npm
     plugs:
