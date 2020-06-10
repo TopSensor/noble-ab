@@ -15,6 +15,7 @@ parts:
     stage-packages:
       - libbluetooth-dev 
       - libudev-dev
+      - build-essential
       
   
 architectures:
