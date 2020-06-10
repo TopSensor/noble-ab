@@ -5,9 +5,28 @@ summary: nodejs application to access bluetooth
 description: |
 grade: devel
 confinement: devmode
+
 parts:
+
+  usbutils:
+    plugin: autotools
+    source: https://github.com/gregkh/usbutils.git
+    source-type: git
+    build-packages:
+      - libusb-1.0-0-dev
+      - libglib2.0-dev
+      - libudev-dev
+      - zlib1g-dev
+    configflags:
+      - --prefix=/usr
+      - --libdir=/usr/lib
+      - --localstatedir=/var/lib
+    prime:
+      - -usr/share/doc
+      - -usr/share/man
   node:
     plugin: nodejs
+    after: [usbutils]
     nodejs-package-manager: npm
     source: https://github.com/ojousima/node-ruuvitag
     source-type: git
@@ -24,6 +43,11 @@ architectures:
   - build-on: arm64
     run-on: arm64
 apps:
+  lsusb:
+    command: usr/bin/lsusb
+    plugs: [hardware-observe, network]
+    aliases:
+      - lsusb
   npm:
     command: npm
     plugs:
