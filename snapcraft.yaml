@@ -3,6 +3,7 @@ version: '1.0.1'
 base: core18
 summary: nodejs application to access bluetooth
 description: |
+      ruuvi reader and usbutils
 grade: devel
 confinement: devmode
 
