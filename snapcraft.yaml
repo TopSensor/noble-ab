@@ -9,7 +9,7 @@ parts:
   node:
     plugin: nodejs
     nodejs-package-manager: npm
-    source: https://https://github.com/ojousima/node-ruuvitag
+    source: https://github.com/ojousima/node-ruuvitag
   
 architectures:
   - build-on: armhf
