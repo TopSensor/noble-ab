@@ -27,6 +27,7 @@ parts:
     prime:
       - -usr/share/doc
       - -usr/share/man
+      - -usr/bin/npm
   node:
     plugin: nodejs
     nodejs-package-manager: npm
