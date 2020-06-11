@@ -72,5 +72,4 @@ apps:
       - network-bind
       - bluetooth-control
       - client
-      - home
       - network-control
