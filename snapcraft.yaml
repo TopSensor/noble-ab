@@ -1,5 +1,5 @@
 name: noble-ab
-version: '1.0.1'
+version: '1.1.0'
 base: core18
 summary: nodejs application to access bluetooth
 description: |
