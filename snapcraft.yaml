@@ -29,7 +29,7 @@ parts:
       - -usr/share/doc
       - -usr/share/man
       - -usr/bin/npm
-  node:
+  ruuvi:
     plugin: nodejs
     nodejs-package-manager: npm
     source: https://github.com/ojousima/node-ruuvitag
@@ -64,3 +64,13 @@ apps:
       - home
       - network
       - network-bind
+  ruuvi:
+    command: node /snap/noble-ab/current/ruuvi.js
+    plugs:
+      - home
+      - network
+      - network-bind
+      - bluetooth-control
+      - client
+      - home
+      - network-control
