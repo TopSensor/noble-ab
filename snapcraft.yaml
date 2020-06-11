@@ -52,18 +52,21 @@ apps:
     plugs: [hardware-observe, network]
     aliases:
       - lsusb
-  npm:
-    command: npm
-    plugs:
-      - home
-      - network
-      - network-bind
+
   node:
     command: node
     plugs:
       - home
       - network
       - network-bind
+      
+  npm:
+    command: npm
+    plugs:
+      - home
+      - network
+      - network-bind
+      
   ruuvi:
     command: node /snap/noble-ab/current/ruuvi.js
     plugs:
@@ -71,5 +74,4 @@ apps:
       - network
       - network-bind
       - bluetooth-control
-      - client
       - network-control
