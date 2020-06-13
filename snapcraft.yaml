@@ -32,6 +32,8 @@ parts:
   ruuvi:
     plugin: nodejs
     nodejs-package-manager: npm
+    node-packages:
+      - node-ruuvitag
     source: https://github.com/ojousima/node-ruuvitag
     source-type: git
     build-packages: [python]
@@ -39,6 +41,10 @@ parts:
       - libbluetooth-dev 
       - libudev-dev
       - build-essential
+    prime:
+      - -usr/share/doc
+      - -usr/share/man
+      - -usr/bin/npm      
       
   
 architectures:
