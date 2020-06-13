@@ -31,8 +31,7 @@ parts:
       - -usr/bin/npm
   ruuvi:
     plugin: nodejs
-    node-packages:
-      - node-ruuvitag
+
     nodejs-package-manager: npm  
     source: https://github.com/ojousima/node-ruuvitag
     source-type: git
