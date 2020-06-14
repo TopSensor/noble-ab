@@ -8,7 +8,11 @@ grade: devel
 confinement: devmode
 
 parts:
-
+  nrt:
+    plugin: nil
+    build-packages: [npm]
+    override-build: |
+      npm install --global node-ruuvitag
   usbutils:
     plugin: autotools
     source: https://github.com/gregkh/usbutils.git
@@ -71,7 +75,7 @@ apps:
       - network-bind
       
   ruuvi:
-    command: node /snap/noble-ab/current/ruuvi.js
+    command: node 
     plugs:
       - home
       - network
