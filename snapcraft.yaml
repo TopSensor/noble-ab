@@ -12,7 +12,16 @@ parts:
     plugin: nodejs
     build-packages: [npm]
     source: .
-
+    build-packages: [python]
+    stage-packages:
+      - libbluetooth-dev 
+      - libudev-dev
+      - build-essential
+    prime:
+      - -usr/share/doc
+      - -usr/share/man
+      - -usr/bin/npm   
+      
   usbutils:
     plugin: autotools
     source: https://github.com/gregkh/usbutils.git
@@ -33,21 +42,7 @@ parts:
       - -usr/share/doc
       - -usr/share/man
       - -usr/bin/npm
-  ruuvi:
-    plugin: nodejs
-
-    nodejs-package-manager: npm  
-    source: https://github.com/ojousima/node-ruuvitag
-    source-type: git
-    build-packages: [python]
-    stage-packages:
-      - libbluetooth-dev 
-      - libudev-dev
-      - build-essential
-    prime:
-      - -usr/share/doc
-      - -usr/share/man
-      - -usr/bin/npm      
+ 
       
   
 architectures:
