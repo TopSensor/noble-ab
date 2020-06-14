@@ -1,18 +1,18 @@
 name: noble-ab
-version: '1.1.0'
+version: '1.2.0'
 base: core18
-summary: nodejs application to access bluetooth
+summary: nodejs application to access bluetooth ruuvies
 description: |
       ruuvi reader and usbutils
 grade: devel
 confinement: devmode
 
 parts:
-  nrt:
-    plugin: nil
+  top:
+    plugin: nodejs
     build-packages: [npm]
-    override-build: |
-      npm install --global node-ruuvitag
+    source: .
+
   usbutils:
     plugin: autotools
     source: https://github.com/gregkh/usbutils.git
@@ -67,15 +67,8 @@ apps:
       - network
       - network-bind
       
-  npm:
-    command: npm
-    plugs:
-      - home
-      - network
-      - network-bind
-      
   ruuvi:
-    command: node 
+    command: node ./index.js
     plugs:
       - home
       - network
