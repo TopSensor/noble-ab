@@ -55,15 +55,17 @@ apps:
     command: usr/bin/lsusb
     plugs: [hardware-observe, network]
 
-  node:
-    command: node
+    
+  ruuvi:
+    command: node $SNAP/index.js
     plugs:
       - home
       - network
       - network-bind
-      
-  ruuvi:
-    command: node ./index.js
+      - bluetooth-control
+      - network-control
+  node:
+    command: node
     plugs:
       - home
       - network
