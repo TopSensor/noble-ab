@@ -14,6 +14,9 @@
     "ruuvi",
     "topsensor"
   ],
+  "dependencies": {
+    "node-ruuvitag": "^4.2.0"
+  },
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",
   "bugs": {
