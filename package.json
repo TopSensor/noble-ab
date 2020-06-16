@@ -15,7 +15,8 @@
     "topsensor"
   ],
   "dependencies": {
-    "node-ruuvitag": "^4.2.0"
+    "node-ruuvitag": "^4.2.0",
+    "ojousima.ble_influx_gw": "^0.7.0"
   },
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",
