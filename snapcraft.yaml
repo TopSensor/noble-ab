@@ -1,5 +1,5 @@
 name: noble-ab
-version: '1.2.0'
+version: '1.3.0'
 base: core18
 summary: nodejs application to access bluetooth ruuvies
 description: |
@@ -58,6 +58,7 @@ apps:
     
   ruuvi:
     command: node $SNAP/index.js
+    daemon: simple
     plugs:
       - home
       - network
