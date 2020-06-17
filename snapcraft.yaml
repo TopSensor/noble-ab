@@ -1,4 +1,4 @@
-name: noble-ab
+name: tsbt
 version: '1.3.0'
 base: core18
 summary: nodejs application to access bluetooth ruuvies
