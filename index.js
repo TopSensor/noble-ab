@@ -19,7 +19,8 @@ const influx = new Influx.InfluxDB({
         battery: Influx.FieldType.INTEGER,
         txPower: Influx.FieldType.INTEGER,
         movementCounter: Influx.FieldType.INTEGER,
-        measurementSequenceNumber: Influx.FieldType.INTEGER
+        measurementSequenceNumber: Influx.FieldType.INTEGER,
+        mac: Influx.FieldType.STRING, 
         
 
       },
