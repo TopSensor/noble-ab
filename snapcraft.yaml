@@ -59,8 +59,7 @@ apps:
   ruuvi:
     command: node $SNAP/index.js
     daemon: simple
-    after:
-      - influxdb-ijohnson
+    start-timeout: 10s
     plugs:
       - home
       - network
