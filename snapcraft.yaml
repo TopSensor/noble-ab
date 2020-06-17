@@ -10,9 +10,8 @@ confinement: devmode
 parts:
   top:
     plugin: nodejs
-    build-packages: [npm]
+    build-packages: [npm, python]
     source: .
-    build-packages: [python]
     stage-packages:
       - libbluetooth-dev 
       - libudev-dev
