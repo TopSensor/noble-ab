@@ -46,9 +46,9 @@ parts:
   
 architectures:
   - build-on: armhf
-  - run-on: armhf
+    run-on: armhf
   - build-on: arm64
-  - run-on: arm64
+    run-on: arm64
 apps:
   lsusb:
     command: usr/bin/lsusb
