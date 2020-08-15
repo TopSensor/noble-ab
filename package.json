@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TopSensor/noble-ab.git"
+    "url": "git+https://github.com/eb/noble-ab.git"
   },
   "keywords": [
     "ruuvi",
@@ -16,7 +16,9 @@
   ],
   "dependencies": {
     "node-ruuvitag": "^4.2.0",
-    "influx": "^5.5.2"
+    "influx": "^5.5.2",
+    "nw": "^0.47.2",
+    "espruino-web-ide":"^0.73.4"
   },
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",
