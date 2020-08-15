@@ -16,8 +16,8 @@
   ],
   "dependencies": {
     "node-ruuvitag": "^4.2.0",
-    "influx": "^5.5.2",
-    "espruino":"^0.1.31"
+    "influx": "^5.5.2"
+  
   },
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",

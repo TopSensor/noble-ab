@@ -22,7 +22,7 @@ parts:
       - -usr/bin/npm   
   espruino:
     plugin: autotools 
-    source: https://github.com/espruino/EspruinoTools
+    source: https://github.com/espruino/EspruinoHub
     source-type: git
     stage-packages:
       - libbluetooth-dev 
