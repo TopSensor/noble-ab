@@ -21,9 +21,12 @@ parts:
       - -usr/share/man
       - -usr/bin/npm   
   espruino:
-    plugin: dump 
+    plugin: dump
     source: https://github.com/espruino/EspruinoHub
     source-type: git
+    organize:
+      '*': EspruinoHub/
+
 
 
   usbutils:
