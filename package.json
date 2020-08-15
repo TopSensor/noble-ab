@@ -17,8 +17,6 @@
   "dependencies": {
     "node-ruuvitag": "^4.2.0",
     "influx": "^5.5.2",
-   // "nw": "^0.47.2",
-   // "espruino-web-ide":"^0.73.4",
     "espruino":"^0.1.31"
   },
   "author": "Eugênio Neves da Rocha",
