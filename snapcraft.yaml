@@ -21,20 +21,10 @@ parts:
       - -usr/share/man
       - -usr/bin/npm   
   espruino:
-    plugin: autotools 
+    plugin: dump 
     source: https://github.com/espruino/EspruinoHub
     source-type: git
-    stage-packages:
-      - libbluetooth-dev 
-      - libudev-dev
-      - build-essential
-    build-packages:
-      - npm
-      - libudev-dev  
-    prime:
-      - -usr/share/doc
-      - -usr/share/man
-      - -usr/bin/npm
+
 
   usbutils:
     plugin: autotools
