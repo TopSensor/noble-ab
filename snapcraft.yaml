@@ -27,7 +27,7 @@ parts:
     organize:
       '*': EspruinoHub/
 
-  espruinoTools:
+  espruino-tools:
     plugin: autotools
     build-packages: [npm] 
     source: https://github.com/espruino/EspruinoTools.git 
