@@ -1,5 +1,5 @@
 name: tsbt
-version: '1.3.1'
+version: '1.3.2'
 base: core18
 summary: nodejs application to access bluetooth ruuvies
 description: |
@@ -28,10 +28,12 @@ parts:
       '*': EspruinoHub/
 
   espruino-tools:
-    plugin: autotools
+    plugin: dump
     build-packages: [npm] 
     source: https://github.com/espruino/EspruinoTools.git 
     source-type: git  
+    organize:
+      '*': EspruinoTools/
     prime:
       - -usr/share/doc
       - -usr/share/man
@@ -91,7 +93,7 @@ apps:
       - bluetooth-control
       - network-control
   espr:
-    command: node $SNAP/index.js
+    command: node $SNAP/EspruinoTools/index.js
     plugs:
       - home
       - network
