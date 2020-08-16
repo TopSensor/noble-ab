@@ -16,7 +16,15 @@
   ],
   "dependencies": {
     "node-ruuvitag": "^4.2.0",
-    "influx": "^5.5.2"
+    "influx": "^5.5.2",
+    "acorn": ">=0.6.0",
+    "es6-shim": "",
+    "escodegen": "",
+    "esmangle": "",
+    "esprima": "",
+    "request": "^2.74.0",
+    "tar.gz": "^1.0.7",
+    "utf8": "^2.1.2"
   
   },
   "author": "Eugênio Neves da Rocha",

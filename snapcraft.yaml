@@ -12,7 +12,7 @@ parts:
     plugin: nodejs
     build-packages: [npm, python]
     source: .
-    stage-packages:
+    stage-packages: 
       - libbluetooth-dev 
       - libudev-dev
       - build-essential
