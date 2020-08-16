@@ -27,6 +27,15 @@ parts:
     organize:
       '*': EspruinoHub/
 
+  espruinoTools:
+    plugin: autotools
+    build-packages: [npm] 
+    source: https://github.com/espruino/EspruinoTools.git 
+    source-type: git  
+    prime:
+      - -usr/share/doc
+      - -usr/share/man
+      - -usr/bin/npm   
 
 
   usbutils:
@@ -75,6 +84,14 @@ apps:
       - network-control
   node:
     command: node
+    plugs:
+      - home
+      - network
+      - network-bind
+      - bluetooth-control
+      - network-control
+  espruinoTools:
+    command: node $SNAP/index.js
     plugs:
       - home
       - network
