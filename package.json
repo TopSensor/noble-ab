@@ -15,7 +15,7 @@
     "topsensor"
   ],
   "dependencies": {
-    "eugenioesg/node-tsbttag": "^4.2.0",
+    "tsbttag": "^4.2.0",
     "influx": "^5.5.2",
     "acorn": ">=0.6.0",
     "es6-shim": "",
