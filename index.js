@@ -1,5 +1,5 @@
 const Influx = require('influx');
-const ruuvi = require('node-ruuvitag');
+const ruuvi = require('tsbttag');
 
 const influx = new Influx.InfluxDB({
   host: 'localhost',
