@@ -15,7 +15,7 @@
     "topsensor"
   ],
   "dependencies": {
-    "tsbttag: "^4.2.0",
+    "tsbttag": "^4.2.2",
     "influx": "^5.5.2",
     "acorn": ">=0.6.0",
     "es6-shim": "",
