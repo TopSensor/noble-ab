@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TopSensor/noble-ab.git"
+    "url": "https://github.com/TopSensor/tsbt.git"
   },
   "keywords": [
     "ruuvi",
     "topsensor"
   ],
   "dependencies": {
-    "node-ruuvitag": "^4.2.0",
+    "tsbttag: "^4.2.0",
     "influx": "^5.5.2",
     "acorn": ">=0.6.0",
     "es6-shim": "",
@@ -30,7 +30,7 @@
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TopSensor/noble-ab/issues"
+    "url": "https://github.com/TopSensor/tsbt/issues"
   },
-  "homepage": "https://github.com/TopSensor/noble-ab#readme"
+  "homepage": "https://github.com/TopSensor/tsbt#readme"
 }
