@@ -1,9 +1,6 @@
 const Influx = require('influx');
 
-var Noble = require('./lib/noble');
-var bindings = require('./lib/resolve-bindings')();
-
-const noble = new Noble(bindings);
+const noble = require('@abandonware/noble');
 
 
 const influx = new Influx.InfluxDB({
