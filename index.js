@@ -1,5 +1,10 @@
 const Influx = require('influx');
-const ruuvi = require('tsbttag');
+
+var Noble = require('./lib/noble');
+var bindings = require('./lib/resolve-bindings')();
+
+const noble = new Noble(bindings);
+
 
 const influx = new Influx.InfluxDB({
   host: 'localhost',
@@ -8,25 +13,21 @@ const influx = new Influx.InfluxDB({
     {
       measurement: 'tsbt',
       fields: {
-        dataFormat: Influx.FieldType.INTEGER,
         rssi: Influx.FieldType.INTEGER,
-        temperature: Influx.FieldType.FLOAT,
-        humidity: Influx.FieldType.FLOAT,
-        pressure: Influx.FieldType.INTEGER,
-        accelerationX: Influx.FieldType.INTEGER,
-        accelerationY: Influx.FieldType.INTEGER,
-        accelerationZ: Influx.FieldType.INTEGER,
-        battery: Influx.FieldType.INTEGER,
+        T: Influx.FieldType.FLOAT,
+        I: Influx.FieldType.FLOAT,
+        V: Influx.FieldType.INTEGER,
         txPower: Influx.FieldType.INTEGER,
-        movementCounter: Influx.FieldType.INTEGER,
         measurementSequenceNumber: Influx.FieldType.INTEGER,
         mac: Influx.FieldType.STRING, 
-        
-
+        bank: Influx.FieldType.STRING, 
+        battNumber: Influx.FieldType.STRING
       },
       tags: [
         'mac',
-        'stringId'
+        'stringId',
+        'bank',
+        'batt'
       ]
     }
   ]
@@ -43,21 +44,62 @@ influx.getDatabaseNames()
     console.error('Error creating Influx database!');
   });
 
-
-ruuvi.on('found', tag => {
-  console.log('Found RuuviTag, id: ' + tag.id);
-  tag.on('updated', data => {
-    console.log('Got data from RuuviTag ' + tag.id + ':\n' +
-      JSON.stringify(data, null, '\t'));
-    influx.writePoints([
-      {
-        measurement: 'tsbt',
-        tags: { mac: data.mac, stringId: 'banco1' },
-        fields: data,
-      }
-    ]).catch(err => {
-      console.error(`Error saving data to InfluxDB! ${err.stack}`)
-    });
-        
+noble.on('stateChange', function (state) {
+    if (state === 'poweredOn') {
+      noble.startScanning([],true);
+    } else {
+      noble.stopScanning();
+    }
   });
-});
+
+  noble.on('discover', function (peripheral) {
+  
+    try{
+      const manufacturerData = peripheral.advertisement ? peripheral.advertisement.manufacturerData : undefined;
+      if (manufacturerData && manufacturerData.toString().search(/{/)>=0 && peripheral.advertisement.localName.search(/ts/i)>=0){
+       /*
+        console.log(peripheral.advertisement.localName);
+        console.log(manufacturerData);
+        console.log(manufacturerData.toString());
+        console.log(manufacturerData.toString().search(/{/));
+        */
+        influx.writePoints([
+            {
+              measurement: 'tsbt',
+              tags: { mac: peripheral.address, stringId:peripheral.id, bank: getBankName(peripheral.advertisement.localName), battNumber:getBattNumber(peripheral.advertisement.localName) },
+              fields: getData(manufacturerData),
+            }
+          ]).catch(err => {
+            console.error(`Error saving data to InfluxDB! ${err.stack}`)
+          });  
+
+    }
+    }  catch (err){
+        //console.log(err);
+    }
+  
+  
+    }
+  
+    )  
+
+function getBankName(input){
+  bg=input.search(/ts/i);
+  end=bg+4;
+  return input.slice(bg,end);
+
+    }
+
+function getBattNumber(input){
+      bg=input.search(/ts/i)+5;
+      end=bg+5;
+      return input.slice(bg,end).trim();
+    
+        }
+ function getData(input){
+     bg=input.search(/{/);
+     end=input.search(/}/)+1;
+     return JSON.parse(input.slice(bg,end).trim());
+
+ }   
+

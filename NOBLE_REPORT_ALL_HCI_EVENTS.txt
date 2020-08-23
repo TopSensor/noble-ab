@@ -1,0 +1,44 @@
+NOBLE_REPORT_ALL_HCI_EVENTS=1
+
+
+const noble = require('../index');
+
+noble.on('stateChange', function (state) {
+  if (state === 'poweredOn') {
+      console.log('ssz');
+    noble.startScanning([],true);
+  } else {
+    noble.stopScanning();
+  }
+});
+
+var count =0;
+
+
+noble.on('discover', function (peripheral) {
+  
+  try{
+    const manufacturerData = peripheral.advertisement ? peripheral.advertisement.manufacturerData : undefined;
+    if (manufacturerData && manufacturerData.toString().search(/{/)>=0 && peripheral.advertisement.localName.search(/ts/i)>=0){
+      count+=1;
+      console.log(peripheral.advertisement.localName);
+      console.log(manufacturerData);
+      console.log(manufacturerData.toString());
+      console.log(manufacturerData.toString().search(/{/));
+      if (count>=150){
+        noble.stopScanning();
+        console.log('stopped');
+    
+    };
+  }
+  }  catch (err){
+      //console.log(err);
+  }
+
+
+  }
+
+  )
+
+
+
