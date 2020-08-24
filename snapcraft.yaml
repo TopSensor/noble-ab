@@ -68,6 +68,10 @@ architectures:
     run-on: armhf
   - build-on: arm64
     run-on: arm64
+    
+plugs:
+  client:
+      interface: bluez
 apps:
   lsusb:
     command: usr/bin/lsusb
@@ -79,6 +83,7 @@ apps:
     daemon: simple
     start-timeout: 30s
     plugs:
+      - client
       - home
       - network
       - network-bind
