@@ -1,14 +1,14 @@
 name: tsbt
 version: '1.3.2'
 base: core18
-summary: nodejs application to access bluetooth ruuvies
+summary: nodejs application to access bluetooth tsbt tags
 description: |
-      ruuvi reader and usbutils
+      tsbt reader and usbutils
 grade: devel
 confinement: devmode
 
 parts:
-  top:
+  tsbt:
     plugin: nodejs
     build-packages: [npm, python]
     source: .
@@ -79,6 +79,7 @@ apps:
 
     
   tsbt:
+    command-chain: bluez.btmgmt power on
     command: node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
