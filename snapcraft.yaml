@@ -1,5 +1,5 @@
 name: tsbt
-version: '1.3.2'
+version: '1.3.3'
 base: core18
 summary: nodejs application to access bluetooth tsbt tags
 description: |
