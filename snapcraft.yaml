@@ -8,6 +8,11 @@ grade: devel
 confinement: devmode
 
 parts:
+  local-scripts:
+    plugin: dump
+    source: .
+    prime:
+      - enableBle.sh
   tsbt:
     plugin: nodejs
     build-packages: [npm, python]
