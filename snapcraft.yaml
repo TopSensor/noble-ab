@@ -12,7 +12,7 @@ parts:
     plugin: dump
     source: .
     prime:
-      - enableBle.sh
+      - -enableBle.sh
   tsbt:
     plugin: nodejs
     build-packages: [npm, python]
