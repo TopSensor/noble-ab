@@ -79,7 +79,8 @@ apps:
 
     
   tsbt:
-    command-chain: bluez.btmgmt power on
+    command-chain: 
+      - bluez.btmgmt power on
     command: node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
