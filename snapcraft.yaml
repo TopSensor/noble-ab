@@ -84,6 +84,8 @@ apps:
 
     
   tsbt:
+    command-chain: 
+      - enableBle.sh
     command: node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
