@@ -25,6 +25,7 @@ parts:
       - libbluetooth-dev 
       - libudev-dev
       - build-essential
+      - libreadline-dev
     prime:
       - -usr/share/doc
       - -usr/share/man
