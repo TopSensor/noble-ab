@@ -1,2 +1,2 @@
 #!/bin/bash
-bluez.btmgmt power on 
+btmgmt power on 
