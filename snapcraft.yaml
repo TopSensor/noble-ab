@@ -19,6 +19,8 @@ parts:
     plugin: nodejs
     build-packages: [npm, python]
     source: .
+    stage-snaps:
+      - bluez
     stage-packages: 
       - libbluetooth-dev 
       - libudev-dev
