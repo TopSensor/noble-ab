@@ -1,2 +1,2 @@
 #!/bin/bash
-btmgmt power on 
+$SNAP/usr/bin/btmgmt power on 
