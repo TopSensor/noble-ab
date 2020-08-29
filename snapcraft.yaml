@@ -21,6 +21,7 @@ parts:
     source: .
     stage-snaps:
       - bluez
+      - ngrok
     stage-packages: 
       - libbluetooth-dev 
       - libudev-dev
@@ -30,12 +31,6 @@ parts:
       - -usr/share/doc
       - -usr/share/man
       - -usr/bin/npm   
-  espruino:
-    plugin: dump
-    source: https://github.com/espruino/EspruinoHub
-    source-type: git
-    organize:
-      '*': EspruinoHub/
 
   espruino-tools:
     plugin: dump
@@ -108,10 +103,11 @@ apps:
       - bluetooth-control
       - network-control
   espr:
-    command: node $SNAP/EspruinoTools/index.js
+    command: node $SNAP/EspruinoTools/bin/espruino-cli.js
     plugs:
+      - client
       - home
       - network
       - network-bind
-      - bluetooth-control
+      - bluetooth-control 
       - network-control
