@@ -5,7 +5,7 @@ tunnels:
     grafana:
         proto: http
         addr: 3000
-        subdomain: kfv.cgo.tsbt.sa.ngrok.io
+        subdomain: kfv.cgo.tsbt
     ssh-tsbt:
         addr:22
         proto: tcp
