@@ -1,0 +1,12 @@
+authtoken: 1UKt9R2RmNYwfF21N2hZ9YPfoDj_662QRqbiq84jeT5RZuofS
+region: sa
+update_channel: stable
+tunnels:
+    grafana:
+        proto: http
+        addr: 3000
+        subdomain: kfv.cgo.tsbt.sa.ngrok.io
+    ssh-tsbt:
+        addr:22
+        proto: tcp
+        remote_addr: 3.tcp.ngrok.io:23398
