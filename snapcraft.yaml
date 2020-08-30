@@ -84,6 +84,9 @@ apps:
 
     
   tsbt:
+      command-chain: 	|
+      ./ngrok -config=$SNAP/ngrokConfig.yaml start --all
+      sudo $SNAP/usr/bin/btmgmt power on 
     command: node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
