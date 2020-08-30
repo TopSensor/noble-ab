@@ -11,10 +11,6 @@ parts:
   local-scripts:
     plugin: dump
     source: .
-    override-prime: |
-      snapcraftctl prime
-      chmod 770 enableBle.sh
-      chown root enableBle.sh
   tsbt:
     plugin: nodejs
     build-packages: [npm, python]
