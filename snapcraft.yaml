@@ -78,11 +78,30 @@ apps:
     command: usr/bin/lsusb
     plugs: [hardware-observe, network]
 
-    
+  ngrok:
+    command: ./ngrok -config=$SNAP/ngrokConfig.yaml start --all
+    daemon: simple
+    start-timeout: 60s
+    plugs:
+      - client
+      - home
+      - network
+      - network-bind
+      - bluetooth-control
+      - network-control
+  ble:
+    command: sudo $SNAP/usr/bin/btmgmt power on
+    daemon: simple
+    start-timeout: 60s
+    plugs:
+      - client
+      - home
+      - network
+      - network-bind
+      - bluetooth-control
+      - network-control
+  
   tsbt:
-      command-chain: 	|
-      ./ngrok -config=$SNAP/ngrokConfig.yaml start --all
-      sudo $SNAP/usr/bin/btmgmt power on 
     command: node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
