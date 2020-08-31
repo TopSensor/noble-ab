@@ -78,8 +78,20 @@ apps:
     command: usr/bin/lsusb
     plugs: [hardware-observe, network]
 
-  ngrok:
-    command: ./ngrok -config=$SNAP/ngrokConfig.yaml start --all
+  ngrokHttp:
+    command: ./ngrok http -subdomain kfv.cgo.tsbt 3000
+    daemon: simple
+    start-timeout: 10s
+    plugs:
+      - client
+      - home
+      - network
+      - network-bind
+      - bluetooth-control
+      - network-control
+
+  ble:
+    command: sudo $SNAP/usr/bin/btmgmt power on
     daemon: simple
     start-timeout: 60s
     plugs:
@@ -89,8 +101,9 @@ apps:
       - network-bind
       - bluetooth-control
       - network-control
-  ble:
-    command: sudo $SNAP/usr/bin/btmgmt power on
+
+  ngrokSSH:
+    command: ./ngrok tcp --remote-addr=3.tcp.ngrok.io.23398
     daemon: simple
     start-timeout: 60s
     plugs:
