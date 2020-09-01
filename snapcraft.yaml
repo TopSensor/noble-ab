@@ -1,5 +1,5 @@
 name: tsbt
-version: '1.3.3'
+version: '1.3.4'
 base: core18
 summary: nodejs application to access bluetooth tsbt tags
 description: |
@@ -79,7 +79,7 @@ apps:
     plugs: [hardware-observe, network]
 
   ngrokHttp:
-    command: ./ngrok http -subdomain kfv.cgo.tsbt 3000
+    command: ngrok http -subdomain kfv.cgo.tsbt 3000
     daemon: simple
     start-timeout: 10s
     plugs:
@@ -91,7 +91,7 @@ apps:
       - network-control
 
   ble:
-    command: sudo $SNAP/usr/bin/btmgmt power on
+    command: /usr/bin/btmgmt power on
     daemon: simple
     start-timeout: 60s
     plugs:
@@ -103,7 +103,7 @@ apps:
       - network-control
 
   ngrokSSH:
-    command: ./ngrok tcp --remote-addr=3.tcp.ngrok.io.23398
+    command: ngrok tcp --remote-addr=3.tcp.ngrok.io.23398 22
     daemon: simple
     start-timeout: 60s
     plugs:
