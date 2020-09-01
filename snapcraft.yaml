@@ -103,7 +103,7 @@ apps:
       - network-control
 
   ngrokSSH:
-    command: ngrok tcp --remote-addr=3.tcp.ngrok.io.23398 22
+    command: ngrok tcp --remote-addr=3.tcp.ngrok.io:23398 22
     daemon: simple
     start-timeout: 60s
     plugs:
