@@ -91,7 +91,7 @@ apps:
       - network-control
 
   ble:
-    command: usr/bin/btmgmt power on
+    command: sudo usr/bin/btmgmt power on
     daemon: simple
     start-timeout: 60s
     plugs:
