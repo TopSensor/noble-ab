@@ -8,7 +8,7 @@ grade: devel
 confinement: devmode
 
 parts:
-   bluez:
+   bluogra:
     plugin: nil
     override-build: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
