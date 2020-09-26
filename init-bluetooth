@@ -1,0 +1,23 @@
+#! /bin/sh
+
+SERIAL=`grep Serial /proc/cpuinfo | cut -c19-`
+B1=`echo $SERIAL | cut -c3-4`
+B2=`echo $SERIAL | cut -c5-6`
+B3=`echo $SERIAL | cut -c7-8`
+BDADDR=`printf b8:27:eb:%02x:%02x:%02x $((0x$B1 ^ 0xaa)) $((0x$B2 ^ 0xaa)) $((0x$B3 ^ 0xaa))`
+
+sleep 30
+
+while ! $SNAP/usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow - $BDADDR ; do
+	echo "looping !!!"
+done
+
+#$SNAP/usr/bin/hciattach /dev/ttyAMA0 bcm43xx 115200 noflow - $BDADDR || true
+
+#$SNAP/usr/bin/hciconfig hci0 up
+
+#$SNAP/usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow - $BDADDR
+#$SNAP/usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -
+#$SNAP/usr/bin/btattach -B /dev/ttyAMA0 -P bcm
+
+#/bin/echo -e 'agent on\ndefault-agent\npower on\nquit' | bluetoothctl

@@ -1,6 +1,6 @@
 {
   "name": "topsensor",
-  "version": "1.1.0",
+  "version": "1.1.5",
   "description": "read ruuvi tags into influxdb",
   "main": "index.js",
   "scripts": {
@@ -11,21 +11,19 @@
     "url": "https://github.com/TopSensor/tsbt.git"
   },
   "keywords": [
-    "ruuvi",
-    "topsensor"
+      "topsensor"
   ],
   "dependencies": {
     "@abandonware/noble": "^1.9.2-9",
-    "influx": "^5.5.2",
-    "acorn": ">=0.6.0",
+    "acorn": "^8.0.1",
     "es6-shim": "",
     "escodegen": "",
     "esmangle": "",
     "esprima": "",
+    "influx": "^5.5.2",
     "request": "^2.74.0",
     "tar.gz": "^1.0.7",
     "utf8": "^2.1.2"
-  
   },
   "author": "Eugênio Neves da Rocha",
   "license": "MIT",
