@@ -14,9 +14,7 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       cp hciattach $SNAPCRAFT_PART_INSTALL/usr/bin/
       cp init-bluetooth $SNAPCRAFT_PART_INSTALL/usr/bin/
-  local-scripts:
-    plugin: dump
-    source: .
+
   tsbt:
     plugin: nodejs
     build-packages: [npm, python]
