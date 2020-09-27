@@ -8,12 +8,6 @@ grade: devel
 confinement: devmode
 
 parts:
-   bluogra:
-    plugin: nil
-    override-build: |
-      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
-      cp hciattach $SNAPCRAFT_PART_INSTALL/usr/bin/
-      cp init-bluetooth $SNAPCRAFT_PART_INSTALL/usr/bin/
 
   tsbt:
     plugin: nodejs
@@ -83,7 +77,7 @@ apps:
     plugs: [hardware-observe, network]
 
   ngrokHttp:
-    command: ./ngrok http -subdomain kfv.cgo.tsbt 3000
+    command: $SNAP/ngrok http -subdomain kfv.cgo.tsbt 3000
     daemon: simple
     start-timeout: 10s
     plugs:
@@ -95,7 +89,7 @@ apps:
       - network-control
 
   init:
-    command: init-bluetooth
+    command: echo 'scan on \n power on \n' |bluetoothctl
     daemon: simple
     plugs:
       - serial-port
@@ -105,7 +99,7 @@ apps:
       - serial-port
 
   ngrokSSH:
-    command: ./ngrok tcp --remote-addr=3.tcp.ngrok.io:23398 22
+    command: $SNAP/ngrok tcp --remote-addr=3.tcp.ngrok.io:23398 22
     daemon: simple
     start-timeout: 60s
     plugs:
