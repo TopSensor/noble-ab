@@ -21,9 +21,6 @@ parts:
     plugin: nodejs
     build-packages: [npm, python]
     source: .
-    build-snaps:
-      - bluez
-      - ngrok
     stage-snaps:
       - bluez
       - ngrok
