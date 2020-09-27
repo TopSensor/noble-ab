@@ -89,7 +89,7 @@ apps:
       - network-control
 
   init:
-    command: echo -e 'scan on \n power on \n' |sudo bluetoothctl
+    command: init-bluetooth
     daemon: simple
     plugs:
       - serial-port
