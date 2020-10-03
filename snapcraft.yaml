@@ -20,7 +20,6 @@ parts:
       - grafana-ijohnson
       - influxdb-ijohnson
       - network-manager
-      - ngrok
     stage-packages: 
       - libbluetooth-dev 
       - libudev-dev
