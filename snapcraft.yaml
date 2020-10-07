@@ -115,7 +115,7 @@ apps:
       - network-control
   
   tsbt:
-    command: node $SNAP/index.js
+    command: nice -15 node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
     plugs:
