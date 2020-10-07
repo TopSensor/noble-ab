@@ -82,8 +82,6 @@ apps:
 
   ngrokHttp:
     command: ngrok http -subdomain kfv.cgo.tsbt 3000
-    daemon: simple
-    start-timeout: 10s
     plugs:
       - client
       - home
@@ -104,8 +102,6 @@ apps:
 
   ngrokSSH:
     command: ngrok tcp --remote-addr=3.tcp.ngrok.io:23398 22
-    daemon: simple
-    start-timeout: 60s
     plugs:
       - client
       - home
