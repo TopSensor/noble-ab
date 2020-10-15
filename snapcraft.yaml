@@ -1,5 +1,5 @@
 name: tsbt
-version: '1.3.7'
+version: '1.3.6'
 base: core18
 summary: nodejs application to access bluetooth tsbt tags
 description: |
@@ -111,7 +111,7 @@ apps:
       - network-control
   
   tsbt:
-    command: nice -15 NOBLE_REPORT_ALL_HCI_EVENTS=1  node $SNAP/index.js
+    command: nice -15 node $SNAP/index.js
     daemon: simple
     start-timeout: 30s
     plugs:
