@@ -2,7 +2,7 @@ const Influx = require('influx');
 
 const noble = require('@abandonware/noble');
 
-
+// write to lifepo4 WDT
 const util = require('util');
 const execP = util.promisify(require('child_process').exec);
 async function lifepo4WDTset() {
