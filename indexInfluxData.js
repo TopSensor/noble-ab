@@ -31,6 +31,15 @@ noble.on('stateChange', function (state) {
       noble.startScanning([],true);
     } else {
       noble.stopScanning();
+      writeApi
+      .close()       
+      .then(() => {
+          console.log('FINISHED')
+      })
+      .catch(e => {
+          console.error(e)
+          console.log('Finished ERROR')
+      })
     }
   });
 
@@ -46,17 +55,7 @@ noble.on('discover', function (peripheral) {
                 const point = new Point('tsbt')
                 .floatField(Object.keys(field)[0], Object.values(field)[0])
                 writeApi.writePoint(point)
-                writeApi
-                    .close()       
-                    .then(() => {
-                        console.log('FINISHED')
-                    })
-                    .catch(e => {
-                        console.error(e)
-                        console.log('Finished ERROR')
-                    })
-  
-
+ 
     }
     }  catch (err){
         console.log(err);
