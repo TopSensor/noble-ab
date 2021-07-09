@@ -93,7 +93,7 @@ noble.on('stateChange', function (state) {
         console.log(manufacturerData.toString());
         console.log(manufacturerData.toString().search(/{/));
         */
-        //WDTset; //refresh lifepo4 watchdog
+        WDTset; //refresh lifepo4 watchdog
         influx.writePoints([
             {
               measurement: 'tsbt',
