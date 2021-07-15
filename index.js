@@ -1,3 +1,4 @@
+var anyError;
 const Influx = require('influx');
 
 const noble = require('@abandonware/noble');
@@ -94,7 +95,8 @@ noble.on('stateChange', function (state) {
         console.log(manufacturerData.toString());
         console.log(manufacturerData.toString().search(/{/));
         */
-        WDTset(); //refresh lifepo4 watchdog
+
+        anyError=false;
         influx.writePoints([
             {
               measurement: 'tsbt',
@@ -102,8 +104,14 @@ noble.on('stateChange', function (state) {
               fields: getData(manufacturerData.toString()),
             }
           ]).catch(err => {
+            anyError=true;
             //console.error(`Error saving data to InfluxDB! ${err.stack}`)
           });  
+
+          if (not anyError){
+            WDTset(); //refresh lifepo4 watchdog
+
+          }
 
     }
     }  catch (err){
