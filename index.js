@@ -108,7 +108,7 @@ noble.on('stateChange', function (state) {
             //console.error(`Error saving data to InfluxDB! ${err.stack}`)
           });  
 
-          if (not anyError){
+          if (!anyError){
             WDTset(); //refresh lifepo4 watchdog
 
           }
