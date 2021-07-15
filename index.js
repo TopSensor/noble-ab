@@ -4,7 +4,8 @@ const noble = require('@abandonware/noble');
 
 // write to lifepo4 WDT
 const { exec } = require('child_process');
-WDTset=exec('sudo /usr/bin/snap run lifepo4 set watchdog_timer 40', (err, stdout, stderr) => {
+WDTset= function(){
+  exec('sudo /usr/bin/snap run lifepo4 set watchdog_timer 40', (err, stdout, stderr) => {
   if (err) {
     //some err occurred
     console.error(err)
@@ -14,7 +15,7 @@ WDTset=exec('sudo /usr/bin/snap run lifepo4 set watchdog_timer 40', (err, stdout
    console.log(`stderr: ${stderr}`);
   }
 });
-
+}
 
 
 const influx = new Influx.InfluxDB({
@@ -93,7 +94,7 @@ noble.on('stateChange', function (state) {
         console.log(manufacturerData.toString());
         console.log(manufacturerData.toString().search(/{/));
         */
-        WDTset; //refresh lifepo4 watchdog
+        WDTset(); //refresh lifepo4 watchdog
         influx.writePoints([
             {
               measurement: 'tsbt',
