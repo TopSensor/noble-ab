@@ -10,10 +10,10 @@ WDTset= function(){
   if (err) {
     //some err occurred
     console.error(err)
-  } else {
+ /*  } else {
    // the *entire* stdout and stderr (buffered)
    console.log(`stdout: ${stdout}`);
-   console.log(`stderr: ${stderr}`);
+   console.log(`stderr: ${stderr}`); */
   }
 });
 }
