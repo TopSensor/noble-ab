@@ -115,7 +115,7 @@ noble.on('stateChange', function (state) {
 
     }
     }  catch (err){
-        console.log(err);
+       // console.log(err);
     }
   
   
