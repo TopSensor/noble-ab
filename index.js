@@ -81,7 +81,7 @@ noble.on('stateChange', function (state) {
   noble.on('discover', function (peripheral) {
   
     try{
-      const manufacturerData = peripheral.advertisement ? peripheral.advertisement.manufacturerData : undefined;
+      const manufacturerData = peripheral.advertisement ? peripheral.advertisement.manufacturerData : false;
       if (manufacturerData && manufacturerData.toString().search(/{/)>=0 && peripheral.advertisement.localName.search(/ts/i)>=0){
            /*
         console.log(peripheral.advertisement.localName);
