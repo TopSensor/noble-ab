@@ -9,7 +9,7 @@ WDTset= function(){
   exec('sudo /usr/bin/snap run lifepo4 set watchdog_timer 40', (err, stdout, stderr) => {
   if (err) {
     //some err occurred
-    console.error(err)
+    //console.error(err)
  /*  } else {
    // the *entire* stdout and stderr (buffered)
    console.log(`stdout: ${stdout}`);
