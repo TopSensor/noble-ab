@@ -5,7 +5,7 @@ summary: nodejs application to access bluetooth tsbt tags
 description: |
       tsbt reader and usbutils
 grade: devel
-confinement: devmode
+confinement: strict
 
 parts:
 
